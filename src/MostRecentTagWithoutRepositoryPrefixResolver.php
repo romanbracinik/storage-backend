@@ -29,7 +29,7 @@ class MostRecentTagWithoutRepositoryPrefixResolver implements TagResolverInterfa
     {
         $tagList = $this->parseTags($this->processRunner->run(self::COMMAND, $gitDirectory));
         /** @var string $theMostRecentTag */
-        $theMostRecentTag = (string) \array_pop($tagList);
+        $theMostRecentTag = (string) \reset($tagList);
         if ($theMostRecentTag === '') {
             return null;
         }
